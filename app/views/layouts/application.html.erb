@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>ToyApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Toy App", 'https://applied-networks-and-security-zachelias.c9users.io/', id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   'https://applied-networks-and-security-zachelias.c9users.io/' %></li>
+            <li><%= link_to "Users",   'https://applied-networks-and-security-zachelias.c9users.io/users' %></li>
+            <li><%= link_to "View Microposts",   'https://applied-networks-and-security-zachelias.c9users.io/microposts' %></li>
+            <li><%= link_to 'About', 'https://applied-networks-and-security-zachelias.c9users.io/static_pages/about' %></li>
+            <li><%= link_to "Help",   'https://applied-networks-and-security-zachelias.c9users.io/static_pages/help' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
